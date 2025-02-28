@@ -1,4 +1,3 @@
-# Blocks-test
 
 local Blocks = {}
 
@@ -56,5 +55,3 @@ end
 
 TimeToSpawn(10)
 print(Blocks[1])
-
-# A test 
