@@ -1,30 +1,19 @@
-
 local Blocks = {}
 
-local BasePlate
-do
+local BasePlate do
     local x, y, z
     local axis = { x = 200, y = 200, z = 1 } -- The Base limit
-    local area = axis[x] * axis[y]
-
-    BasePlate = {
-        axis = axis.x,
-        axis.y,
-        axis.z,
-        area = area
-    }
-
+    local area = axis.x * axis.y
     function SetLimits(LimitX, LimitY, LimitZ)
         local LimitX = math.max(200)
         local LimitY = math.max(200)
         local LimitZ = math.max(1)
 
         local function BlockOnSpawn()
-            local x = 0
-            local y = 0
-            local z = 0
+            
+            local StartingPos = 0
 
-            local RandomSpawnPoisition = math.random(x and y, area)
+            local RandomSpawnPoisition = math.random(StartingPos, area)
         end
 
         return BlockOnSpawn()
@@ -45,7 +34,8 @@ end
 local function TimeToSpawn(Time)
     local Time = 15
 
-    while Time - 1 do
+    while Time > 0 do
+        Time = Time - 1
         if Time == 0 then
             local BLOCK_TYPE = GetBlock()
             table.insert(Blocks, BLOCK_TYPE)
